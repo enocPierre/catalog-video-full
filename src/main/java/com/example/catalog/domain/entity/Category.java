@@ -1,28 +1,27 @@
 package com.example.catalog.domain.entity;
 
-import java.util.Objects;
 import java.util.UUID;
 
-public class Category {
+public class Category extends BaseEntity {
 
-    private UUID id;
     private String name;
 
     public Category() {
 
     }
 
-    public Category(UUID id, String name) {
-        this.id = id;
-        this.name = name;
+    public Category(String name) {
+        super.generateUUID();
+        this.setName(name);
     }
 
-    public UUID getId() {
-        return id;
+    public Category(UUID id) {
+        super.setId(id);
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public  Category(UUID id, String name) {
+        super.setId(id);
+        this.setName(name);
     }
 
     public String getName() {
@@ -35,24 +34,4 @@ public class Category {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Category)) return false;
-        Category category = (Category) o;
-        return id.equals(category.id) && Objects.equals(name, category.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
