@@ -1,12 +1,13 @@
 package com.example.catalog.domain.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Genre extends BaseEntity {
 
     private String name;
-    private List<Category> categories;
+    private List<Category> categories = new ArrayList<Category>();
 
     public Genre() {
 
