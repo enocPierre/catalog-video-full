@@ -18,6 +18,7 @@ public class Video extends  BaseEntity {
     private List<Category> categories = new ArrayList<Category>();
     private List<Genre> genres = new ArrayList<Genre>();
     private List<CastMenber> castMenbers = new ArrayList<CastMenber>();
+    private List<VideoFile> videoFiles = new ArrayList<VideoFile>();
 
     public Video() {
 
@@ -57,6 +58,16 @@ public class Video extends  BaseEntity {
         this.setDuration(duration);
     }
 
+    public Video(String title, String description, Integer yearLanched, Float duration, List<VideoFile> videoFiles) {
+        super.generateUUID();
+        this.setTitle(title);
+        this.setDescription(description);
+        this.setYearLanched(yearLanched);
+        this.setDuration(duration);
+        this.setVideoFiles(videoFiles);
+    }
+
+
     public String getTitle() {
 
         return title;
@@ -67,6 +78,7 @@ public class Video extends  BaseEntity {
         if (title.length() == 0) throw  new IllegalArgumentException("title is marked non-blank but is blank");
         this.title = title;
     }
+
 
     public String getDescription() {
         return description;
@@ -136,6 +148,71 @@ public class Video extends  BaseEntity {
     public void setCastMenbers(List<CastMenber> castMenbers) {
         if (castMenbers == null) throw new IllegalArgumentException("castMenber is marked non-null but is null");
         this.castMenbers = castMenbers;
+    }
+
+    public void addCategory(Category category) {
+        if (category == null) throw new IllegalArgumentException("category is marked non-null but is null");
+        this.categories.removeIf(c -> this.categories.contains(category));
+    }
+
+    public void removeCategory(Category category) {
+        if (category == null) throw new IllegalArgumentException("category is marked non-null but is null");
+        this.categories.add(category);
+    }
+
+    public void addGenre(Genre genre) {
+        if (genre == null) throw new IllegalArgumentException("genre is marked non-null but is null");
+        this.genres.add(genre);
+    }
+
+    public void removeGenre(Genre genre) {
+        if (genre == null) throw new IllegalArgumentException("genre is marked non-null but is null");
+        this.genres.removeIf(c -> this.genres.contains(genre));
+    }
+
+    public void addCastMenber(CastMenber castMenber) {
+        if (castMenber == null) throw new IllegalArgumentException("castMember is marked non-null but is null");
+        this.castMenbers.add(castMenber);
+    }
+
+
+    public void addCastMember(CastMenber castMenber) {
+        if (castMenber == null) throw new IllegalArgumentException("castMember is marked non-null but is null");
+        this.castMenbers.removeIf(c -> this.castMenbers.contains(castMenber));
+    }
+
+    public List<VideoFile> getVideoFiles() {
+        return videoFiles;
+    }
+
+    public void setVideoFiles(List<VideoFile> videoFiles) {
+        if (videoFiles == null) throw new IllegalArgumentException("videoFiles is marked non-null but is null");
+        this.videoFiles = videoFiles;
+    }
+
+    public Video createVideoWithFile(String title, String description, Integer yearLanched, Boolean opened,
+                                     String rating, Float duration, List<Category> categories, List<CastMenber> castMenbers, List<Genre> genres, List<VideoFile> videoFiles) {
+        this.setTitle(title);
+        this.setDescription(description);
+        this.setYearLanched(yearLanched);
+        this.setDuration(duration);
+        this.setCategories(categories);
+        this.setGenres(genres);
+        this.setCastMenbers(castMenbers);
+        this.setVideoFiles(videoFiles);
+        return this;
+    }
+
+    public Video createVideoWithoutFile(String title, String description, Integer yearLanched, Boolean opened,
+                                        String rating, Float duration, List<Category> categories, List<CastMenber> castMenbers, List<Genre> genres) {
+        this.setTitle(title);
+        this.setDescription(description);
+        this.setYearLanched(yearLanched);
+        this.setDuration(duration);
+        this.setCategories(categories);
+        this.setGenres(genres);
+        this.setCastMenbers(castMenbers);
+        return this;
     }
 
 }
