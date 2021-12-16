@@ -1,7 +1,9 @@
 package com.example.catalog.domain.entity;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 public class Video extends  BaseEntity {
@@ -13,6 +15,9 @@ public class Video extends  BaseEntity {
     private String rating;
     private Float duration;
 
+    private List<Category> categories = new ArrayList<Category>();
+    private List<Genre> genres = new ArrayList<Genre>();
+    private List<CastMenber> castMenbers = new ArrayList<CastMenber>();
 
     public Video() {
 
@@ -105,4 +110,32 @@ public class Video extends  BaseEntity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         this.duration = Float.valueOf(decimalFormat.format(duration));
     }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        if (title == null) throw new IllegalArgumentException("categories is marked non-null but is null");
+        this.categories = categories;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        if (genres == null) throw new IllegalArgumentException("genres is marked non-null but is null");
+        this.genres = genres;
+    }
+
+    public List<CastMenber> getCastMenbers() {
+        return castMenbers;
+    }
+
+    public void setCastMenbers(List<CastMenber> castMenbers) {
+        if (castMenbers == null) throw new IllegalArgumentException("castMenber is marked non-null but is null");
+        this.castMenbers = castMenbers;
+    }
+
 }
