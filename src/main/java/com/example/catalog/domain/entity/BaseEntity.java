@@ -20,7 +20,7 @@ public class BaseEntity {
         return this.id;
     }
     //validate uuid
-    protected Boolean isValidUUID(String _id) {
+    public Boolean isValidUUID(String _id) {
         if (_id == null) {
             return false;
         }
