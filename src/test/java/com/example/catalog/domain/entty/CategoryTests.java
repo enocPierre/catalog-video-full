@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class CategoryTest {
+public class CategoryTests {
 
     @Test
     public void throwIllegalArgumentExceptionWhenNameIsNull() {

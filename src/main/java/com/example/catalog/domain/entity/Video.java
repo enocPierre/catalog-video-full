@@ -17,7 +17,7 @@ public class Video extends  BaseEntity {
 
     private List<Category> categories = new ArrayList<Category>();
     private List<Genre> genres = new ArrayList<Genre>();
-    private List<CastMenber> castMenbers = new ArrayList<CastMenber>();
+    private List<CastMember> castMenbers = new ArrayList<CastMember>();
     private List<VideoFile> videoFiles = new ArrayList<VideoFile>();
 
     public Video() {
@@ -141,11 +141,11 @@ public class Video extends  BaseEntity {
         this.genres = genres;
     }
 
-    public List<CastMenber> getCastMenbers() {
+    public List<CastMember> getCastMenbers() {
         return castMenbers;
     }
 
-    public void setCastMenbers(List<CastMenber> castMenbers) {
+    public void setCastMenbers(List<CastMember> castMenbers) {
         if (castMenbers == null) throw new IllegalArgumentException("castMenber is marked non-null but is null");
         this.castMenbers = castMenbers;
     }
@@ -170,13 +170,13 @@ public class Video extends  BaseEntity {
         this.genres.removeIf(c -> this.genres.contains(genre));
     }
 
-    public void addCastMenber(CastMenber castMenber) {
+    public void addCastMenber(CastMember castMenber) {
         if (castMenber == null) throw new IllegalArgumentException("castMember is marked non-null but is null");
         this.castMenbers.add(castMenber);
     }
 
 
-    public void addCastMember(CastMenber castMenber) {
+    public void addCastMember(CastMember castMenber) {
         if (castMenber == null) throw new IllegalArgumentException("castMember is marked non-null but is null");
         this.castMenbers.removeIf(c -> this.castMenbers.contains(castMenber));
     }
@@ -191,7 +191,7 @@ public class Video extends  BaseEntity {
     }
 
     public Video createVideoWithFile(String title, String description, Integer yearLanched, Boolean opened,
-                                     String rating, Float duration, List<Category> categories, List<CastMenber> castMenbers, List<Genre> genres, List<VideoFile> videoFiles) {
+                                     String rating, Float duration, List<Category> categories, List<CastMember> castMenbers, List<Genre> genres, List<VideoFile> videoFiles) {
         this.setTitle(title);
         this.setDescription(description);
         this.setYearLanched(yearLanched);
@@ -204,7 +204,7 @@ public class Video extends  BaseEntity {
     }
 
     public Video createVideoWithoutFile(String title, String description, Integer yearLanched, Boolean opened,
-                                        String rating, Float duration, List<Category> categories, List<CastMenber> castMenbers, List<Genre> genres) {
+                                        String rating, Float duration, List<Category> categories, List<CastMember> castMenbers, List<Genre> genres) {
         this.setTitle(title);
         this.setDescription(description);
         this.setYearLanched(yearLanched);
