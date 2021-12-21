@@ -25,7 +25,7 @@ public class CategoryTests {
     }
 
     @Test
-    public void throwIllegalArgumentExceptionWhenNameIsBlanck() {
+    public void throwIllegalArgumentExceptionWhenNameIsBlank() {
         assertThrows(IllegalArgumentException.class, () -> new Category(""));
     }
 

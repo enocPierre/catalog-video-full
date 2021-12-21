@@ -22,7 +22,7 @@ public class GenreTests {
     }
 
     @Test
-    public void throwIllegalArgumentExceptionWhenNameIsBlanck() {
+    public void throwIllegalArgumentExceptionWhenNameIsBlank() {
         assertThrows(IllegalArgumentException.class, () -> new Genre(""));
     }
 
@@ -32,7 +32,7 @@ public class GenreTests {
     }
 
     @Test
-    public void throwIllegalArgumentExceptionWhenNameIsBlanckAndCategoriesIsNul() {
+    public void throwIllegalArgumentExceptionWhenNameIsBlankAndCategoriesIsNul() {
         assertThrows(IllegalArgumentException.class, () -> new Genre((String) "", null));
     }
 

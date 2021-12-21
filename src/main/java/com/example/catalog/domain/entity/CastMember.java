@@ -36,9 +36,10 @@ public class CastMember extends  BaseEntity {
     private String name;
     private  CastMemberType type;
 
-    public CastMember() {
+   public CastMember() {
 
-    }
+   }
+
 
     public CastMember(UUID id, String name, CastMemberType type) {
         super.setId(id);
@@ -46,19 +47,16 @@ public class CastMember extends  BaseEntity {
         this.setType(type);
     }
 
-    public CastMember(UUID id, String name) {
+    public CastMember(String name) {
         super.generateUUID();
         this.setName(name);
-        this.setType(type);
     }
-
 
     public CastMember(String name, CastMemberType type) {
         super.generateUUID();
         this.setName(name);
         this.setType(type);
     }
-
     public String getName() {
         return name;
     }
